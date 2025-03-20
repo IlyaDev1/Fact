@@ -13,12 +13,12 @@ async def loop():
         for sector_id in range(2, 66):
             async with get_db() as session_instance:
                 fact_instance = FactModel(
-                    is_avalance=bool(randint(0, 1)),
+                    is_avalanche=bool(randint(0, 1)),
                     timestamp=timestamp,
                     sector_id=sector_id,
                 )
                 session_instance.add(fact_instance)
-                await session_instance.flush(fact_instance)
+                await session_instance.flush()
                 await session_instance.commit()
                 logger.info(f"Создана запись {fact_instance}")
             count += 1
