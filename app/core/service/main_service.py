@@ -1,3 +1,4 @@
+from asyncio import sleep
 from datetime import datetime, timedelta
 from random import randint
 
@@ -8,7 +9,7 @@ from logger import logger
 
 async def loop():
     count = 0
-    timestamp: datetime = datetime(2025, 1, 1, 0)
+    timestamp: datetime = datetime(2025, 5, 1, 0)
     while count < 2840:
         for sector_id in range(2, 66):
             async with get_db() as session_instance:
@@ -23,3 +24,4 @@ async def loop():
                 logger.info(f"Создана запись {fact_instance}")
             count += 1
             timestamp += timedelta(hours=1)
+            await sleep(5)
