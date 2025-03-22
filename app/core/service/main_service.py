@@ -21,7 +21,7 @@ async def loop():
                 session_instance.add(fact_instance)
                 await session_instance.flush()
                 await session_instance.commit()
-                logger.info(f"Создана запись {fact_instance}")
+                logger.info(f"Создана запись для {fact_instance.sector_id}")
             count += 1
             timestamp += timedelta(hours=1)
             await sleep(5)
