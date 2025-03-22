@@ -9,7 +9,7 @@ from logger import logger
 
 async def loop():
     count = 0
-    timestamp: datetime = datetime(2025, 5, 1, 0)
+    timestamp: datetime = datetime(2025, 7, 6, 1)
     while count < 2840:
         for sector_id in range(2, 66):
             async with get_db() as session_instance:
